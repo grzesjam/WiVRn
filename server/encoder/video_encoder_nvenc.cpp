@@ -204,7 +204,7 @@ video_encoder_nvenc::video_encoder_nvenc(
 	GUID presetGUID = NV_ENC_PRESET_P4_GUID;
 	check_preset_guid_supported(shared_state, session_handle, encodeGUID, presetGUID);
 
-	NV_ENC_TUNING_INFO tuningInfo = NV_ENC_TUNING_INFO_ULTRA_LOW_LATENCY;
+	NV_ENC_TUNING_INFO tuningInfo = NV_ENC_TUNING_INFO_LOW_LATENCY;
 #pragma GCC diagnostic pop
 	NV_ENC_PRESET_CONFIG preset_config{
 	        .version = NV_ENC_PRESET_CONFIG_VER,
