@@ -217,7 +217,7 @@ video_encoder_nvenc::video_encoder_nvenc(
 
 	// Bitrate control
 	config.rcParams = get_rc_params(bitrate, fps);
-	config.rcParams.enableTemporalAQ = 0;
+	config.rcParams.enableTemporalAQ = 1;
 	config.rcParams.enableAQ = 1;
 	config.rcParams.enableNonRefP = 1;
 
