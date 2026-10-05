@@ -277,6 +277,13 @@ std::shared_ptr<scenes::stream> scenes::stream::create(std::unique_ptr<wivrn_ses
 			info.available_refresh_rates = {guessed_fps};
 			info.settings.preferred_refresh_rate = guessed_fps;
 		}
+		else if (info.settings.preferred_refresh_rate != 0)
+		{
+			// Request the saved display mode before the server starts the stream. The
+			// server requests its stream rate again in setup(), but only after it has
+			// initialized the encoder and sent the video description.
+			self->session.set_refresh_rate(info.settings.preferred_refresh_rate);
+		}
 
 		info.settings.bitrate_bps = config.bitrate_bps;
 		info.settings.mirror_gamepad = config.forward_gamepad;
